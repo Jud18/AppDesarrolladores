@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DevLife</string>
+    <string name="btnLogin">Iniciar Sesión</string>
+    <string name="txtEmail">Email</string>
+    <string name="txtPassword">Contraseña</string>
+    <string name="imgBackground">Imagen de Fondo</string>
+    <string name="imgLogo">Logo DevLife</string>
+
+    <string name="tab1">Tab 1</string>
+    <string name="tab2">Tab 2</string>
+    <string name="tab3">Tab 3</string>
+
+</resources>
