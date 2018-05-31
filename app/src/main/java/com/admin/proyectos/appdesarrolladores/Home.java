@@ -1,5 +1,6 @@
 package com.admin.proyectos.appdesarrolladores;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -33,13 +34,16 @@ public class Home extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#6cbcdc"));
+        tabLayout.setTabTextColors(Color.parseColor("#8788a9"), Color.parseColor("#FFFFFF"));
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FragPeticiones(), "ONE");
-        adapter.addFragment(new FragPeticiones(), "TWO");
-        adapter.addFragment(new FragPeticiones(), "THREE");
+        adapter.addFragment(new FragPeticiones(), "REQUESTS");
+        adapter.addFragment(new FragPeticiones(), "WORK");
+        adapter.addFragment(new FragPeticiones(), "MORE");
         viewPager.setAdapter(adapter);
     }
 
