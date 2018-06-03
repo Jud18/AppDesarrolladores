@@ -1,16 +1,14 @@
 package com.admin.proyectos.appdesarrolladores;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class FragPeticiones extends Fragment{
+public class FragPeticiones extends BaseVolleyFragment{
 
     public FragPeticiones() {
         // Required empty public constructor
