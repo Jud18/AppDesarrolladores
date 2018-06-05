@@ -27,9 +27,7 @@ public class FragPeticiones extends BaseVolleyFragment implements AdapterView.On
     ListView listView;
     ArrayList<ListPeticionItem> contactPeticion;
 
-    public FragPeticiones() {
-        // Required empty public constructor
-    }
+    DBHelper mydb;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,56 +39,32 @@ public class FragPeticiones extends BaseVolleyFragment implements AdapterView.On
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.frag_peticiones, container, false);
-
-        makeRequest();
         listView = (ListView) view.findViewById(R.id.contact_view);
-
+        mydb = new DBHelper(this.getActivity());
+        makeList();
         return view;
     }
 
+    public void makeList(){
 
-    private void makeRequest(){
+        try {
+            ListPeticionItem peticiones = mydb.getPeticionActiva();
 
-        SharedPreferences preferences = this.getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        String user = preferences.getString("userKey", "");
-        //Log.e("ERROR", "User: " + user);
-        String url = "https://adminproyectosapi.azurewebsites.net/api/Todo/" + user + "/Peticion";
-        //Log.e("ERROR", "URL: " + url);
-        JsonArrayRequest request = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                try {
-                    JSONObject obj = response.getJSONObject(0);
-                    JSONArray comp = obj.getJSONArray("componentes");
+            contactPeticion = new ArrayList<ListPeticionItem>();
 
-                    makeList(obj, comp);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                onConnectionFinished();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                onConnectionFailed("Error: " + volleyError.toString());
-            }
-        });
-        addToQueue(request);
-    }
+            contactPeticion.add(peticiones);
+            listView.setAdapter(new ListviewPeticionAdapter(getActivity(), contactPeticion));
 
-    public void makeList(JSONObject datos, JSONArray comp){
-        ListPeticionItem peticiones = new ListPeticionItem(datos, comp);
-        contactPeticion = new ArrayList<ListPeticionItem>();
-
-        contactPeticion.add(peticiones);
-        listView.setAdapter(new ListviewPeticionAdapter(getActivity(), contactPeticion));
-
-        // ListView on item selected listener.
-        listView.setOnItemClickListener(this);
+            // ListView on item selected listener.
+            listView.setOnItemClickListener(this);
+        }catch (JSONException e){
+            Log.e("JSON", e.getMessage());
+        }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getActivity(), contactPeticion.get(position).getNombre().toString(), Toast.LENGTH_SHORT).show();
+
     }
 }

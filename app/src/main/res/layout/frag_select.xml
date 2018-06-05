@@ -9,99 +9,104 @@
 
     <ImageView
         android:id="@+id/imgIcon"
-        android:contentDescription="@string/imgItem"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="45dp"
+        android:layout_alignStart="@+id/listTec"
+        android:layout_alignTop="@+id/txtFolio"
+        android:contentDescription="@string/imgItem"
         app:srcCompat="@drawable/ic_active" />
 
     <TextView
         android:id="@+id/txtFolio"
-        android:layout_width="88dp"
+        android:layout_width="58dp"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/txtNom"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="16dp"
+        android:textAlignment="textEnd" />
 
     <TextView
         android:id="@+id/txtNom"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imgIcon"
-        android:layout_toEndOf="@+id/imgIcon" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="45dp"
+        android:layout_toEndOf="@+id/imgIcon"
+        android:textAlignment="center" />
 
     <TextView
         android:id="@+id/txtNomEmp"
-        android:layout_width="180dp"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/txtNom"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="80dp" />
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="71dp"
+        android:textAlignment="textEnd" />
 
     <TextView
         android:id="@+id/txtRepEmp"
-        android:layout_width="180dp"
+        android:layout_width="164dp"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imgIcon"
         android:layout_alignEnd="@+id/txtNom"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="110dp" />
+        android:layout_marginEnd="15dp"
+        android:textAlignment="textEnd" />
 
     <TextView
         android:id="@+id/txtTec"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/imgIcon"
-        android:layout_marginTop="168dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
         android:text="@string/lbTec"
         android:textStyle="bold" />
 
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:id="@+id/listTec"
         android:layout_width="335dp"
-        android:layout_height="70dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="198dp" />
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/txtTec"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
 
     <TextView
         android:id="@+id/txtExt"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/listTec"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="261dp"
+        android:layout_marginTop="60dp"
         android:text="@string/lbExt"
         android:textStyle="bold" />
 
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:id="@+id/listExt"
         android:layout_width="335dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/txtExt"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="180dp" />
+        android:layout_marginTop="25dp" />
 
     <TextView
         android:id="@+id/txtComp"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/listExt"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="148dp"
+        android:layout_marginTop="60dp"
         android:text="@string/lbComp"
         android:textStyle="bold" />
 
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:id="@+id/listComp"
         android:layout_width="335dp"
-        android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="100dp"
+        android:layout_alignTop="@+id/txtComp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="66dp" />
+        android:layout_marginTop="25dp"
+        android:textSize="1dp" />
 
 </RelativeLayout>
