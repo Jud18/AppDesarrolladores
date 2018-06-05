@@ -5,21 +5,14 @@
     <string name="txtPassword">Contraseña</string>
     <string name="imgBackground">Imagen de Fondo</string>
     <string name="imgLogo">Logo DevLife</string>
+    <string name="imgItem">Logo Item</string>
 
     <string name="tab1">Peticiones</string>
     <string name="tab2">Proyectos</string>
     <string name="tab3">Sugerencias</string>
 
-    <string-array name="Planets">
-        <item>Sun</item>
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
+    <string name="lbTec">Tecnologias</string>
+    <string name="lbExt">Extras</string>
+    <string name="lbComp">Componentes</string>
 
 </resources>
