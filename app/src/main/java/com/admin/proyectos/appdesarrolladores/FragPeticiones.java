@@ -50,7 +50,7 @@ public class FragPeticiones extends BaseVolleyFragment implements AdapterView.On
         try {
             ListPeticionItem peticiones = mydb.getPeticionActiva();
 
-            contactPeticion = new ArrayList<ListPeticionItem>();
+            contactPeticion = new ArrayList<>();
 
             contactPeticion.add(peticiones);
             listView.setAdapter(new ListviewPeticionAdapter(getActivity(), contactPeticion));

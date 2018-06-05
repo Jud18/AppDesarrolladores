@@ -2,22 +2,27 @@ package com.admin.proyectos.appdesarrolladores;
 
 public class Componente {
 
+    private String folio;
     private String id;
     private String nombre;
     private String tecnologia;
-    private String minTime;
-    private String maxTime;
+    private String min;
+    private String max;
     private String estimado;
 
-    public Componente(String id, String nom, String tec, String min, String max, String est){
+    public Componente(String folio, String id, String nom, String tec, String min, String max, String est){
+        this.folio = folio;
         this.id = id;
         this.nombre = nom;
         this.tecnologia = tec;
-        this.minTime = min;
-        this.maxTime = max;
+        this.min = min;
+        this.max = max;
         this.estimado = est;
     }
 
+    public String getFolio() {
+        return folio;
+    }
     public String getId(){
         return id;
     }
@@ -28,10 +33,10 @@ public class Componente {
         return tecnologia;
     }
     public String getMinTime(){
-        return minTime;
+        return min;
     }
     public String getMaxTime(){
-        return maxTime;
+        return max;
     }
     public String getEstimado(){
         return estimado;

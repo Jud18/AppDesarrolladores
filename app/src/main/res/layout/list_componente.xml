@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.admin.proyectos.appdesarrolladores.Home">
+
+
+    <TextView
+        android:id="@+id/txtCom"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/txtTec"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/txtCom" />
+
+    <TextView
+        android:id="@+id/txtMin"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/txtTec" />
+
+    <TextView
+        android:id="@+id/txtMax"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/txtMin" />
+
+    <TextView
+        android:id="@+id/txtEst"
+        android:layout_width="54dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/txtMax" />
+
+</RelativeLayout>

@@ -109,4 +109,13 @@
         android:layout_marginTop="25dp"
         android:textSize="1dp" />
 
+    <Button
+        android:id="@+id/btnEstimar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/listComp"
+        android:layout_alignStart="@+id/txtFolio"
+        android:layout_marginTop="110dp"
+        android:text="ESTIMAR" />
+
 </RelativeLayout>

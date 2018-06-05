@@ -2,6 +2,8 @@ package com.admin.proyectos.appdesarrolladores;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
@@ -92,22 +94,16 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor getPeticion(int folio){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from peticiones where folio="+folio+"", null );
-        return res;
-    }
+    public boolean updateTiem(String folio, String id, String time){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
 
-    public Cursor getComponente(int folio) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from componentes where folio="+folio+"", null );
-        return res;
-    }
+        cv.put("estimado", time);
 
-    public int numberOfRows(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, COMPONENTE_TABLE_NAME);
-        return numRows;
+        db.update(COMPONENTE_TABLE_NAME, cv, "folio='"+folio+"' AND id='"+id+"'", null);
+
+        return true;
+
     }
 
     public ListPeticionItem getPeticionActiva() throws JSONException{
@@ -137,17 +133,42 @@ public class DBHelper extends SQLiteOpenHelper {
 
         while(com.isAfterLast() == false){
             comp = new JSONObject();
-            comp.put("id", com.getString(0));
-            comp.put("nombre", com.getString(1));
-            comp.put("tecnologia", com.getString(2));
-            comp.put("min", com.getString(3));
-            comp.put("max", com.getString(4));
-            comp.put("estimado", com.getString(5));
+            comp.put("folio", com.getString(0));
+            comp.put("id", com.getString(1));
+            comp.put("nombre", com.getString(2));
+            comp.put("tecnologia", com.getString(3));
+            comp.put("min", com.getString(4));
+            comp.put("max", com.getString(5));
+            comp.put("estimado", com.getString(6));
             componentes.put(comp);
             com.moveToNext();
         }
 
         return new ListPeticionItem(data, componentes);
+    }
+
+    public JSONArray getTiempos(String folio){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select id, estimado from componentes where folio='"+folio+"'", null );
+        res.moveToFirst();
+
+        JSONArray tiempos = new JSONArray();
+        JSONObject com;
+
+        while(res.isAfterLast() == false){
+            com = new JSONObject();
+
+            try {
+                com.put("idComponente", res.getString(0));
+                com.put("Estimado", res.getString(1));
+            }catch(JSONException e){
+
+            }
+            tiempos.put(com);
+            res.moveToNext();
+        }
+
+        return tiempos;
     }
 
     public ArrayList<ListPeticionItem> getFolioPeticion(String folio) {
